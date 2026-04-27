@@ -1,0 +1,44 @@
+!DOCTYPE html
+html lang=pt-BR
+
+head
+  meta charset=UTF-8
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titleFaça seu registrotitle
+  link rel=stylesheet href=assetscssstyle.css
+head
+
+body
+  div class=container
+    form action= id=form class=form
+      h2Faça seu cadastroh2
+      div class=form-fields
+        label for=usernameSeu usuáriolabel
+        input type=text name=username class=username id=username placeholder=Seu usuário
+        span class=error-messageCampo inválido por algum motivo qualquerspan
+      div
+      div class=form-fields
+        label for=emailSeu e-maillabel
+        input type=email name=email class=email id=email placeholder=Seu e-mail
+        span class=error-messageCampo inválido por algum motivo qualquerspan
+      div
+      div class=form-fields
+        label for=usernameSua senhalabel
+        input type=password name=password class=password id=password placeholder=Sua senha
+        span class=error-messageCampo inválido por algum motivo qualquerspan
+      div
+      div class=form-fields
+        label for=usernameRepetir senhalabel
+        input type=password name=password2 class=password2 id=password2 placeholder=Repetir senha
+        span class=error-messageCampo inválido por algum motivo qualquerspan
+      div
+      div class=form-fields
+        button type=submitEnviarbutton
+      div
+    form
+  div
+
+  script src=assetsjsbundle.jsscript
+body
+
+html
