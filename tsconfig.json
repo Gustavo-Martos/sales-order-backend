@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "isolatedModules": true,
+        "target": "ES2024",
+        "module": "Node16",
+        "moduleResolution": "node16",
+        "strict": true,
+        "strictNullChecks": true,
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "rootDir": "./",
+        "sourceMap": true,
+        "paths": {
+            "@models/*": ["./@cds-models/*/index.ts"],
+            "@/*": ["./srv/*"],
+            "@tests/*": ["./test/*"]
+        }
+    },
+    "include": ["srv", "test"],
+    "exclude": ["node_modules"]
+}

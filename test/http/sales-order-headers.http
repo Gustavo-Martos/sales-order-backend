@@ -1,0 +1,112 @@
+@localhost=localhost:4004/odata/v4/main
+@id=c4b0f1b9-4c40-4f8a-90b8-f886e119f140
+@customerId=22398235-f619-425f-a33d-1f668673f062
+# produto sem estoque
+@productId1=25780010-8d0e-47fa-ab52-c8f11a73ab15
+@productId2=5345576f-8357-48da-aab6-78549623f37f
+
+GET http://{{localhost}}/SalesOrderHeaders?$filter=id eq {{id}}&$expand=items
+Content-Type: application/json
+
+###
+
+POST http://{{localhost}}/SalesOrderHeaders
+Content-Type: application/json
+Authorization: Basic cuka:Inicial@12345
+
+{
+    "id": "{{id}}",
+    "customer_id": "15835084-bccf-49e8-9465-9d70bdee3e7d",
+    "items": [
+        {
+            "id": "c23ccfc1-2d10-4274-8e1c-6aa7d95e0300",
+            "header_id": "{{id}}",
+            "product_id": "{{productId2}}",
+            "quantity": 10,
+            "price": 2.99
+        },
+        {
+            "id": "1463f1d6-4c71-4822-9497-86ede7ba9f2b",
+            "header_id": "{{id}}",
+            "product_id": "{{productId2}}",
+            "quantity": 5,
+            "price": 1.99
+        }
+    ]
+}
+
+###
+
+DELETE http://{{localhost}}/SalesOrderHeaders(id={{id}})
+Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+PUT http://{{localhost}}/SalesOrderHeaders(id={{id}})
+Content-Type: application/json
+Authorization: Basic joaozinho:Inicial@12345
+
+{
+    "modifiedBy": "teste"
+}
+
+###
+
+# Buscar todos os pedidos maiores ou iguais a 2 milhões
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount ge 2000000
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Buscar todos os pedidos menores ou iguais a 200k
+GET http://{{localhost}}/SalesOrderHeaders?$filter=totalAmount le 200000
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Expandindo os items, produtos e customers
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product),customer
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Expandindo os items, produtos, customers e filtrando
+GET http://{{localhost}}/SalesOrderHeaders?$expand=items($expand=product;$filter=quantity le 30),customer
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Selecionar somente customer e id do sales order header
+
+GET http://{{localhost}}/SalesOrderHeaders?$select=customer&$expand=customer($select=email)
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Descobrindo a quantidade de registros
+
+GET http://{{localhost}}/SalesOrderHeaders/$count
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Paginando os registros
+
+GET http://{{localhost}}/SalesOrderHeaders?$skip=10&$top=5
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Buscando dados com $search
+GET http://{{localhost}}/SalesOrderHeaders?$search=91pve&$filter=totalAmount gt 500
+Authorization: Basic joaozinho:Inicial@12345
+
+###
+
+# Funcionalidade de clonar pedidos
+POST http://{{localhost}}/SalesOrderHeaders(15196739-2936-4d66-b85c-283f5ae8ec03)/cloneSalesOrder
+Authorization: Basic cuka:cuka
+Content-Type: application/json
+
+{}
