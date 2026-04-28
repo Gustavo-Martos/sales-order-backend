@@ -1,0 +1,12 @@
+GET http://localhost:4004/odata/v4/main/SalesOrderHeaders
+content-type: application/json
+
+###
+
+POST http://localhost:4004/odata/v4/main/SalesOrderHeaders
+content-type: application/json
+
+{
+    "ID": "1231",
+    "Name": "José"
+}

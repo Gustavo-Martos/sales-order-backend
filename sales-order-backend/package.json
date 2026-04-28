@@ -17,6 +17,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@cap-js/sqlite": "^2.2.1",
     "git-commit-msg-linter": "^5.0.8"
   }
 }
