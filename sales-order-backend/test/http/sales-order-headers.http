@@ -1,12 +1,43 @@
-GET http://localhost:4004/odata/v4/main/SalesOrderHeaders
+@localhost=localhost:4004/odata/v4/main
+@id=ceb950eb-76fd-438b-a190-0f728fc8c0eb
+@productID=1    
+GET http://{{localhost}}/SalesOrderHeaders
 content-type: application/json
 
 ###
 
-POST http://localhost:4004/odata/v4/main/SalesOrderHeaders
+POST http://{{localhost}}/SalesOrderHeaders
 content-type: application/json
 
 {
     "ID": "12551",
-    "name": "Contreras"
+    "customerID": "ceb950eb-76fd-438b-a190-0f728fc8c0eb",
+    "itens": [
+        {
+            "id": "",
+            "header": "{{id}}",
+            "product": "{{productID}}",
+            "quantity": 10,
+            "unitPrice": 10.98
+        },
+        {
+            "productID": "2",
+            "quantity": 2,
+            "unitPrice": 20
+        }
+    ]
+}
+
+###
+
+DELETE http://{{localhost}}/SalesOrderHeaders('{{id}}')
+Content-Type: application/json
+
+###
+
+PUT http://{{localhost}}/SalesOrderHeaders('{{id}}')
+Content-Type: application/json
+
+{
+    "ModifiedId": "102551",
 }
