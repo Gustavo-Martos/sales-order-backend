@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "node16",
+    "moduleResolution": "node16",
+    "noImplicitAny": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "outDir": "./dist",
+    "rootDir": "./",
+    "skipLibCheck": true  // <-- ADICIONE ESTA LINHA
+  },
+  "include": ["srv"],
+  "exclude": ["node_modules"]
+}
