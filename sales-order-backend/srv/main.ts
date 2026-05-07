@@ -1,8 +1,12 @@
-import cds from '@sap/cds';
+import { Service } from '@sap/cds';
+// 1. Adicione o SalesOrderHeaders na sua importação
+import { Customers, SalesOrderHeaders } from '@models/sales'; 
 
-export default class MainService extends cds.ApplicationService {
-    async init() {
-        // A mágica vai acontecer aqui depois
-        return super.init();
-    }
+export default (service: Service) => {
+    // 2. Tire as aspas de 'SalesOrderHeaders'
+    service.after('READ', SalesOrderHeaders, (results: Customers) => {
+        
+        // Sua lógica aqui dentro
+
+    });
 }

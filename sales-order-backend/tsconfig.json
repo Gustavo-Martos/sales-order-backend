@@ -9,8 +9,11 @@
     "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./",
-    "skipLibCheck": true  // <-- ADICIONE ESTA LINHA
+    "skipLibCheck": true,
+    "paths": {
+      "@models/*": ["./@cds-models/*"]
+    }
   },
-  "include": ["srv"],
-  "exclude": ["node_modules"]
+  "include": ["srv", "@cds-models"],
+  "exclude": ["node_modules", "dist"]
 }
