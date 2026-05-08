@@ -1,43 +1,42 @@
 @localhost=localhost:4004/odata/v4/main
 @id=ceb950eb-76fd-438b-a190-0f728fc8c0eb
-@productID=1    
+@productID=1
+
 GET http://{{localhost}}/SalesOrderHeaders
-content-type: application/json
+Content-Type: application/json
 
 ###
 
 POST http://{{localhost}}/SalesOrderHeaders
-content-type: application/json
+Content-Type: application/json
 
 {
-    "ID": "12551",
-    "customerID": "ceb950eb-76fd-438b-a190-0f728fc8c0eb",
-    "itens": [
+    "ID": "ceb950eb-76fd-438b-a190-0f728fc8c0f0",
+    "customer_ID": "ceb950eb-76fd-438b-a190-0f728fc8c0eb",
+    "items": [
         {
-            "id": "",
-            "header": "{{id}}",
-            "product": "{{productID}}",
+            "product_ID": "ceb950eb-76fd-438b-a190-0f728fc8c0e1",
             "quantity": 10,
-            "unitPrice": 10.98
+            "price": 10.98
         },
         {
-            "productID": "2",
+            "product_ID": "ceb950eb-76fd-438b-a190-0f728fc8c0e2",
             "quantity": 2,
-            "unitPrice": 20
+            "price": 20
         }
     ]
 }
 
 ###
 
-DELETE http://{{localhost}}/SalesOrderHeaders('{{id}}')
+DELETE http://{{localhost}}/SalesOrderHeaders({{id}})
 Content-Type: application/json
 
 ###
 
-PUT http://{{localhost}}/SalesOrderHeaders('{{id}}')
+PUT http://{{localhost}}/SalesOrderHeaders({{id}})
 Content-Type: application/json
 
 {
-    "ModifiedId": "102551",
+    "name": "Pedido Alterado"
 }
